@@ -66,15 +66,24 @@ dev.off()
 
 # Plotting with RGB Scheme = in color
 # The RGB is the stacking of blue, red, and green on each other. But here we have 4 bands, there is a NIR band as well. So, what is the solution?
-# Building a natural color image -- putting the name of the satellite and then the element
+# Building a natural color image -- putting the name of the satellite and then the element  --the order below is based on the sentstack order
 # Image: sentstack
 # 1st element of the image: blue (band 2)
 # 2nd element of the image: green (band 3)
 # 3rd element of the image: red (band 4)
 # 4th element of the image: NIR (band 8)
 
-#Just consider the elements of the image (array)
+#Just consider the elements of the image (array) - the result would be in natural colors (how our eyes see it)
+im.plotRGB(sentstack, r = 3, g = 2, b = 1)
 
+# to add the NIR element, we need to remove one of them. There can be only 3
+im.plotRGB(sentstack, r = 4, g = 3, b = 2)  #false color - it shows the NIR as red, because we put it on top of the red element
+im.plotRGB(sentstack, r = 3, g = 4, b = 2)  #false color - it shows the NIR as green, because we put it on top of the green element
+im.plotRGB(sentstack, r = 3, g = 2, b = 4)  #false color - it shows the NIR as blue, because we put it on top of the blue element
 
-
-
+# Showing the above in a multiframe
+par(mfrow = c(2,2))
+im.plotRGB(sentstack, r = 3, g = 2, b = 1)
+im.plotRGB(sentstack, r = 4, g = 3, b = 2)
+im.plotRGB(sentstack, r = 3, g = 4, b = 2)  
+im.plotRGB(sentstack, r = 3, g = 2, b = 4) 
