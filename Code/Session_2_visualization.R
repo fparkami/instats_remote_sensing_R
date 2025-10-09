@@ -36,3 +36,5 @@ plot(b2, col = magma(150))
 
 #Info about the band
 b2
+
+#We will now go band by band and then how to import them all together
