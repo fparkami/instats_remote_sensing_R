@@ -2,3 +2,7 @@
 # search "earth observatory", then download an image, then we will import it here
 
 library(terra)
+
+# setting the working directory
+setwd("E:/University/Dissertation/5th Year/Courses/Remote Seinsing in R")
+getwd()  # this shows which folder you are working with
