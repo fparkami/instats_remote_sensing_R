@@ -1,1 +1,4 @@
+# Code for importing remote sensing data from outside R
+# search "earth observatory", then download an image, then we will import it here
 
+library(terra)
