@@ -5,4 +5,16 @@ library(terra)
 
 # setting the working directory
 setwd("E:/University/Dissertation/5th Year/Courses/Remote Seinsing in R")
-getwd()  # this shows which folder you are working with
+getwd()  # this shows which folder you are working with --- now that you have the folder, you can use the file name directly
+
+# importing data with terra using rast   -- remember to use the .jpg at the end
+rast("tarimbasin_oli2_20250911_lrg.jpg")
+
+we can put a name for it -- the warning message: "unknown extent" is not a problem, this is because the picture won't show all the details from previous work on it
+desert <- rast("tarimbasin_oli2_20250911_lrg.jpg")
+
+# plotting the picture
+plot(desert)
+
+# analyzing the uploaded data
+
