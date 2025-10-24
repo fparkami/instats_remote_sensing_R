@@ -27,3 +27,16 @@ plot(desert_c)
 writeRaster (desert_c, "desert_c.png")  #then we can find this file in our working directory
 
 # Excercise: download a set of earth observatory and upload it in R
+# first I download an image from earth observatory, then:
+sun <- rast("Sun_Stereo")
+sun  #this is to get the data of the image
+plot(sun)
+
+# the extension of the image : extent      : 0, 540, 0, 405  (xmin, xmax, ymin, ymax)
+# cropping the data
+ext <- c(100, 120, 100, 240)
+sun_c <- crop(sun, ext)
+plot(sun_c)
+
+# exporting the data
+writeRaster (sun_c, "sun_c.png")
