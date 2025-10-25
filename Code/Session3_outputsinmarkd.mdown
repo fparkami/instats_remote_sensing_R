@@ -26,6 +26,11 @@ plot(desert)
 ```
 ![alt text](https://github.com/fparkami/instats_remote_sensing_R/blob/main/Code/Sun_Stereo.jpg)
 
+## Exporting Images analyzed in R
+In order to export images I will use the writeRaster function
 
+``` r
+
+```
 
 
