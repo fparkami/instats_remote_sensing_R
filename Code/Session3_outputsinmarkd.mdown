@@ -24,13 +24,36 @@ desert <- rast("tarimbasin_oli2_20250911_lrg.jpg")
 # plotting the picture
 plot(desert)
 ```
-![alt text](https://github.com/fparkami/instats_remote_sensing_R/blob/main/Code/Sun_Stereo.jpg)
 
 ## Exporting Images analyzed in R
 In order to export images I will use the writeRaster function
 
 ``` r
+# analyzing the uploaded data
+# croping the image -- name <- c (min X, max X, min Y, max Y) -- below, ext means extension
+# looking at the code details the dimensions of the orginial image are: 0, 1440, 0, 600 --> we pick the numbers based on these dimensions
+ext <- c(100, 1000, 100, 500)
+desert_c <- crop(desert, ext)
+plot(desert_c)
+writeRaster (desert_c, "desert_c.png")  #then we can find this file in our working directory
 
 ```
+> Obviously this can be done with any kind of image
+``` r
+# Excercise: download a set of earth observatory and upload it in R
+# first I download an image from earth observatory, then:
+sun <- rast("Sun_Stereo")
+sun  #this is to get the data of the image
+plot(sun)
 
+# the extension of the image : extent      : 0, 540, 0, 405  (xmin, xmax, ymin, ymax)
+# cropping the data
+ext <- c(100, 120, 100, 240)
+sun_c <- crop(sun, ext)
+plot(sun_c)
+
+# exporting the data
+writeRaster (sun_c, "sun_c.png")
+```
+![alt text](https://github.com/fparkami/instats_remote_sensing_R/blob/main/Code/Sun_Stereo.jpg)
 
