@@ -24,7 +24,7 @@ desert <- rast("tarimbasin_oli2_20250911_lrg.jpg")
 # plotting the picture
 plot(desert)
 ```
-![alt text](E:/University/Dissertation/5th Year/Courses/Remote Seinsing in R/Sun_Stereo.jpg)
+![alt text](https://github.com/fparkami/instats_remote_sensing_R/blob/main/Code/Sun_Stereo.jpg)
 
 
 
