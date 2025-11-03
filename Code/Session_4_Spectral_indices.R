@@ -52,8 +52,58 @@ im.plotRGB (m2006, r = 2, g = 3, b =1, title = 'Mattogrosso 2006')
 # Calculating difference vegetation index - the difference btw the NIR and red
 # If we run m1992, we will see the three layers of color in the description: matogrosso~2219_lrg_1, matogrosso~2219_lrg_2, matogrosso~2219_lrg_3 
 # The first layer is the NIR, [] means I am subsetting the image, only retaining for example the first element
-nir <- m1992 [[1]]
+nir1992 <- m1992 [[1]] #OR m1992 $ matogrosso~2219_lrg_1
+red1992 <- m1992 [[2]]
 
+# Calculating difference vegetation index for 2006
+nir2006 <- m2006 [[1]] 
+red2006 <- m2006 [[2]]
 
+#then we calculate the DVI, since we are using a mathematical formula and not a function, we use = instead of <-
+dvi1992 = nir1992 - red1992
+dvi2006 = nir2006 - red2006
 
+plot(dvi1992)
+plot(dvi2006)
 
+# to close the current plotting window
+dev.off()
+
+# to put both plots in one place
+par(mfrow = c(1, 2))
+plot(dvi1992) #shows a lot of vegetation
+plot(dvi2006) #most vegetation is destroyed
+
+#NDVI: Why do we use NDVI?
+# consider the example of a 3 bits image, it means that it ranges from 0-7. because it means 2 elevated at 3, so 8 potential values
+dvi = nir - red = 7 - 0 = 7 #the max dvi
+# an 8 bit image: range(0-255) -- because 2 is elevated by 8
+dvi = nir - red = 255 - 0 = 255 #the max dvi
+
+## these images cannot be compared because one is ranging to 7 and the other to 255
+# bit is the amount of color a pixel can store
+# the number of bits is called radiometric resolution
+# there are 3 types of resolutions: spatial, spectral (the number of bands), and the radiometric resolution (the amount of bits)
+## to be able to compare these images, we need to use the NDVI
+# ndvi = dvi / (nir + red)  # this means we have normalized the dvi
+# dvi = nir - red = 7 - 0 = 7
+# ndvi = dvi / (nir + red) = 7 / 7 + 0 = 1   # it is ranging to 1 (from -1)
+
+# dvi = nir - red = 255 - 0 = 255
+# ndvi = dvi / (nir + red) = 255 / 255 + 0 = 1    # it is ranging to 1 (from -1)
+ # when you look at the images, you see they are both from -200 to + 255 --> in this case they are both the same radiometirc so dvi is ok to use
+# if not the same, we will use ndvi
+
+ndvi1992 = dvi1992 / (nir1992 + red1992)
+ndvi2006 = dvi2006 / (nir2006 + red2006)
+
+plot(ndvi1992)
+plot(ndvi2006)
+
+# changing the palette using viridis package, we use inferno pallette #color blind people can see these colors
+library(viridis)
+plot(ndvi1992, col = inferno (100))
+plot(ndvi2006, col = inferno (100))
+
+plot(ndvi1992, col = inferno (3))  #these give rougher images
+plot(ndvi2006, col = inferno (3))
