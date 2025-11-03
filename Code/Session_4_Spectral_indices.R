@@ -107,3 +107,14 @@ plot(ndvi2006, col = inferno (100))
 
 plot(ndvi1992, col = inferno (3))  #these give rougher images
 plot(ndvi2006, col = inferno (3))
+
+# The imagery package has some functions for calculating dvi and ndvi -- im.dvi() and im.ndvi()
+#  Nature does not follow geometrical lines -- fractal dimension
+# for example fire does not move in a linear way, it moves fractically
+# when red is lower than NIR --> it shows either bare soil or water
+#Healthy vegetation:
+    # NIR (near-infrared) reflectance → high
+    # Red reflectance → low
+→ That’s why NDVI = (NIR − Red) / (NIR + Red) gives high values for vegetation
+
+
