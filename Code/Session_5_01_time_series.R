@@ -1,1 +1,23 @@
+# time series analysis in R
 
+library(terra)
+library(imageRy)
+
+im.list()
+
+# Nitrogen dioxide NO2 is very important gas that impacts the environment
+# this gas was considerably reduced in time of Covid-19
+# https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-5P/COVID-19_nitrogen_dioxide_over_China
+# the video on the link above shows this in China
+# the EN data shows the European Nitrogen
+
+EN01 <- im.import("EN_01.png")
+EN01  #we can see that this is just an RGB output, there is no relationship with the original bands
+
+plot(EN01 [[1]])
+
+EN13 <- im.import("EN_13.png")
+EN13
+plot(EN13 [[1]])  #Shows how strong the red values are in different parts of the image.
+plot(EN13 [[2]])  #Shows how strong the green values are in different parts of the image.
+plot(EN13 [[3]])  #Shows how strong the blue values are in different parts of the image.
