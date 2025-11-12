@@ -21,3 +21,15 @@ EN13
 plot(EN13 [[1]])  #Shows how strong the red values are in different parts of the image.
 plot(EN13 [[2]])  #Shows how strong the green values are in different parts of the image.
 plot(EN13 [[3]])  #Shows how strong the blue values are in different parts of the image.
+
+ENset <- c(EN01 [[1]], EN13 [[1]])
+plot(ENset)  #EN01 shows a wide amount of nitrogen, while it decreases in the other one
+
+# the first is from Jan and the 2nd from March
+jan <- EN01 [[1]]
+mar <- EN13 [[1]]
+
+# making the difference btw Jan and Mar, it subsracts the pixels
+diffEN <- jan - mar
+plot (diffEN)    # the jan parts are green and the mar ones are white
+
