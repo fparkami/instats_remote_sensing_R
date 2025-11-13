@@ -33,3 +33,16 @@ mar <- EN13 [[1]]
 diffEN <- jan - mar
 plot (diffEN)    # the jan parts are green and the mar ones are white
 
+# the greenland data are about iceland ice melt
+# if you only put "greenland", it will bring all four greenland data, but if I use the specific name, then it will only show that one
+gr <- im.import("greenland")
+gr_1 <- im.import("greenland.2000.tif")
+
+# let's do the mako legend for the color from viridis
+library(viridis)
+plot(gr, col = mako(100))
+
+# now let's change to inferno
+plot(gr, col = inferno(100))   #the very dark side shows low temperature --> showing the ice
+
+
