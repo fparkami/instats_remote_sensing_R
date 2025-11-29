@@ -30,7 +30,7 @@ jan <- EN01 [[1]]
 mar <- EN13 [[1]]
 
 # making the difference btw Jan and Mar, it subsracts the pixels
-diffEN <- jan - mar
+diffEN = jan - mar            # we use = because it is math
 plot (diffEN)    # the jan parts are green and the mar ones are white
 
 # the greenland data are about iceland ice melt
@@ -44,5 +44,30 @@ plot(gr, col = mako(100))
 
 # now let's change to inferno
 plot(gr, col = inferno(100))   #the very dark side shows low temperature --> showing the ice
+#to better show that, see below
+par(mfrow = c(1, 2))
+plot(gr[[1]], col = inferno(100))
+plot(gr[[4]], col = inferno(100))
+
+#let's change the order
+par(mfrow = c(2, 1))
+plot(gr[[1]], col = inferno(100))
+plot(gr[[4]], col = inferno(100))
+
+#to better see the difference
+difgr = gr[[1]] - gr[[4]]
+plot(difgr)
+
+#since it is still showing the par function, we will dev.off()
+dev.off()
+#and the above code again
+#to better see the difference
+difgr = gr[[1]] - gr[[4]]
+plot(difgr)
+
+# to show th frequencies of each image in time using ridgeline plot
+ndvi <- im.import("NDVI_2020")
+ndvi  #to see the info, it is showing 4 months, and we can see they are all named NDVI,NDVI, NDVI, NDVI. this is a problem 32:01
+
 
 
