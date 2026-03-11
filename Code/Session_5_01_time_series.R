@@ -65,9 +65,21 @@ dev.off()
 difgr = gr[[1]] - gr[[4]]
 plot(difgr)
 
+#Ridgeline plot --------
 # to show th frequencies of each image in time using ridgeline plot
 ndvi <- im.import("NDVI_2020")
-ndvi  #to see the info, it is showing 4 months, and we can see they are all named NDVI,NDVI, NDVI, NDVI. this is a problem 32:01
+ndvi  #to see the info, it is showing 4 months in the console, and we can see they are all named NDVI,NDVI, NDVI, NDVI. 
+# this is a problem because we want the months to be shown instead, especially it will cause issues with the ridgeline
+#im.ridgeline (im, scale, pallatte): im is the image (ndvi), the scale is the height of the ridgeline plot
+library(ggridges)
+im.ridgeline (ndvi, 1, "viridis")  #but it shows only one image because akk 4 images are called ndvi -- so we should change the names
+
+names(ndvi) <- c("02_February", "05_May", "08_August", "11_November")
+ndvi       #now when we run ndvi, it shows these names in the console
+im.ridgeline(ndvi, 1, "viridis")                 35:20
+
+
+
 
 
 
