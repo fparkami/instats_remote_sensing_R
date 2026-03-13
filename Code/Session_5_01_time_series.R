@@ -77,6 +77,11 @@ im.ridgeline (ndvi, 1, "viridis")  #but it shows only one image because akk 4 im
 names(ndvi) <- c("02_February", "05_May", "08_August", "11_November")
 ndvi       #now when we run ndvi, it shows these names in the console
 im.ridgeline(ndvi, 1, "viridis")                 35:20
+#the scale number shows the height, so if we put 2 instead, it will override itself
+im.ridgeline (ndvi, 2, "viridis")
+# we can also change the palatte 
+im.ridgeline (ndvi, 2, "plasma")
+
 
 
 
