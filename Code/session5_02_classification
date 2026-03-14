@@ -1,0 +1,19 @@
+#Classifying remotely sensed data
+#I used the codes below because I received an error, otherwise, just use library to load them and install patchwork
+install.packages("ggplot2", type = "win.binary", dependencies = FALSE)
+install.packages("patchwork", type = "win.binary", dependencies = FALSE)
+
+library(ggplot2)
+library(patchwork)
+
+library(terra)
+library(imageRy)
+
+#then we import one from the list which is an image of the sun showing energies
+im.list()
+sun <- im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
+
+#see classification pdf in the instat files
+#the different colors show different pixels each having their own meaning, like green shows snow and purple shows the urban area
+##--- sunc = sun calssifies -- an image with 3 classes
+sunc <- im.classify (sun, num_clusters = 3)
